@@ -2,7 +2,7 @@ Summary:	Pingus, a lemmings style game with penguins
 Summary(pl):	Gra typu lemmingi z pingwinami w roli g³ównej
 Name:		pingus
 Version:	0.5.0pre3
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://dark.x.dtu.dk/~grumbel/%{name}/%{name}-%{version}.tar.bz2
@@ -11,6 +11,9 @@ Source2:	%{name}.png
 Patch0:		%{name}-datadir.patch
 Patch1:		%{name}-Clanlib-0.6.1.patch
 Patch2:		%{name}-amfix.patch
+Patch3:		%{name}-acfix.patch
+Patch4:		%{name}-gcc3.patch
+Patch5:		%{name}-data-typos.patch
 URL:		http://pingus.seul.org/
 BuildRequires:	ClanLib-devel >= 0.6.1
 BuildRequires:	Hermes-devel
@@ -42,19 +45,19 @@ Wspania³a gra typu lemmings z tym, ¿e sterujesz pingwinami!
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
 %build
 rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-CPPFLAGS="-I%{_includedir} -I/usr/include/libxml2/libxml"
-if [ -f %{_pkgconfigdir}/libpng12.pc ] ; then
-	CPPFLAGS="$CPPFLAGS `pkg-config libpng12 --cflags`"
-fi
+CPPFLAGS="-I/usr/X11R6/include -I/usr/include/libxml2/libxml"
 %configure \
 	CPPFLAGS="$CPPFLAGS" \
-	LDFLAGS="-L%{_libdir} %{rpmldflags}"
+	LDFLAGS="-L/usr/X11R6/lib %{rpmldflags}"
 %{__make}
 
 %install
@@ -70,16 +73,21 @@ mv -f $RPM_BUILD_ROOT%{_datadir}/games/pingus $RPM_BUILD_ROOT%{_datadir}/pingus
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf AUTHORS BUGS ChangeLog CREDITS FAQ NEWS TODO THANKS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
+
+%postun
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
+
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS BUGS ChangeLog CREDITS FAQ NEWS TODO THANKS
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_mandir}/man*/*
+%{_infodir}/*.info*
 %{_applnkdir}/Games/*
 %{_pixmapsdir}/*

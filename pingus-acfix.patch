@@ -1,0 +1,18 @@
+--- pingus-0.5.0pre3/configure.in.orig	Sat Oct 12 16:44:37 2002
++++ pingus-0.5.0pre3/configure.in	Sat Oct 12 16:45:53 2002
+@@ -344,7 +344,6 @@
+            data/worldmaps/Makefile
+            data/data/Makefile
+            data/demos/Makefile
+-           data/data/Makefile
+            doc/Makefile
+            po/Makefile.in intl/Makefile
+   data/images/core/menu/Makefile
+@@ -396,7 +396,6 @@
+   data/images/special/Makefile
+   data/images/special/pacman/Makefile
+   data/images/textures/Makefile
+-  data/images/Makefile
+   data/images/hotspots/misc/Makefile
+   data/images/hotspots/space/Makefile
+   data/images/hotspots/desert/Makefile

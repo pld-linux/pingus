@@ -1,0 +1,26 @@
+--- pingus-0.5.0pre3/data/data/global.scr.orig	Fri Jan 18 00:38:39 2002
++++ pingus-0.5.0pre3/data/data/global.scr	Sat Oct 12 17:59:39 2002
+@@ -27,8 +27,8 @@
+ 
+ 	danger      = ../images/groundpieces/ground/signposts/danger.png (type=surface, x=0, y=0, width=215, height=121);
+ //	crystal     = ../images/hotspots/crystal.png    (type=surface, x=0, y=0, width=60,  height=109);
+-	colum       = ../images/groundpieces/ground/misc/colum.png      (type=surface, x=0, y=0, width=142, height=184);
+-	colum_flat  = ../images/groundpieces/ground/misc/colum_flat.png (type=surface, x=0, y=0, width=184, height=122);
++	colum       = ../images/groundpieces/ground/misc/column.png      (type=surface, x=0, y=0, width=142, height=184);
++	colum_flat  = ../images/groundpieces/ground/misc/column_flat.png (type=surface, x=0, y=0, width=184, height=122);
+ 
+ 	colum_piece1 = ../images/groundpieces/ground/desert/column_piece1.png      (type=surface, x=0, y=0, width=103, height=66);
+ 	colum_piece2 = ../images/groundpieces/ground/desert/column_piece2.png      (type=surface, x=0, y=0, width=128, height=66);
+--- pingus-0.5.0pre3/data/levels/level2.xml.orig	Tue Jan 15 20:48:48 2002
++++ pingus-0.5.0pre3/data/levels/level2.xml	Sat Oct 12 18:11:24 2002
+@@ -33,8 +33,8 @@
+ 
+ <background type="surface">
+   <surface><resource type="datafile">
+-    <resource-datafile>thunderstorm</resource-datafile>
+-  <resource-ident>green</resource-ident>
++    <resource-datafile>textures</resource-datafile>
++  <resource-ident>Textures/thunderstorm</resource-ident>
+   </resource></surface>
+   <color>
+     <red>0</red>
