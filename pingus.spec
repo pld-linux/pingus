@@ -41,6 +41,8 @@ Wspania³a gra typu lemmingi z tym, ¿e steruje siê pingwinami!
 
 %build
 rm -f missing
+%{__libtoolize}
+%{__gettextize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
