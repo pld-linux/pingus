@@ -1,15 +1,14 @@
-%define		cvsdate	01-05-26
 Summary:	Pingus, a lemmings style game with penguins
 Summary(pl):	Gra typu lemmingi z pingwinami w roli g³ównej
 Name:		pingus
-Version:	0.4.0
+Version:	0.5.0pre2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
 Group(pl):	X11/Aplikacje/Gry
-#Source0:	cvs://anonymous@dark.x.dtu.dk:/usr/local/cvsroot:Games/Pingus/Pingus-%{ver}.tar.gz
-Source0:	http://dark.x.dtu.dk/~mbn/clanlib/download/snapshots/Games/Pingus-CVS-%{cvsdate}.tar.gz
+Source0:	http://dark.x.dtu.dk/~grumbel/%{name}/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-datadir.patch
 URL:		http://pingus.seul.org/
 BuildRequires:	gtk+-devel > 1.2.1
 BuildRequires:	glib-devel
@@ -37,13 +36,16 @@ A cool lemmings game with penguins instead of lemmings!
 Wspania³a gra typu lemmings z tym, ¿e sterujesz pingwinami!
 
 %prep
-%setup -q -n Pingus-CVS-%{cvsdate}
+%setup -q
+%patch0 -p1
 
 %build
 ./autogen.sh || :
-CPPFLAGS="-I%{_includedir}"; export CPPFLAGS
-LDFLAGS="-L%{_libdir} %{rpmldflags}"; export LDFLAGS
-%configure
+install -d  data/images/buttons/
+touch data/images/buttons/Makefile.in
+%configure \
+	CPPFLAGS="-I%{_includedir}" \
+	LDFLAGS="-L%{_libdir} %{rpmldflags}"
 %{__make}
 
 %install
@@ -53,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	bindir=%{_bindir}
 
-gzip -9nf AUTHORS BUGS ChangeLog CREDITS FAQ NEWS TODO WISHLIST
+gzip -9nf AUTHORS BUGS ChangeLog CREDITS FAQ NEWS TODO THANKS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
