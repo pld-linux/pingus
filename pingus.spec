@@ -54,7 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	bindir=%{_bindir}
+	bindir=%{_bindir} \
+	pkgdatadir=%{_datadir}/%{name}
 
 install -D %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
 install -D %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
