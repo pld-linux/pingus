@@ -35,7 +35,6 @@ Wspania³a gra typu lemmings z tym, ¿e sterujesz pingwinami!
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 rm -f missing
