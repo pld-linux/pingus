@@ -1,0 +1,12 @@
+diff -durN pingus-0.5.0pre2.orig/configure.in pingus-0.5.0pre2/configure.in
+--- pingus-0.5.0pre2.orig/configure.in	Fri Jul 27 21:44:48 2001
++++ pingus-0.5.0pre2/configure.in	Fri Aug 10 14:41:05 2001
+@@ -298,7 +298,7 @@
+ AC_CHECK_FUNCS(select strdup)
+ 
+ dnl Checking for the install prefix and then use it to define PINGUS_DATADIR
+-PINGUS_EXPAND_DIR(pingus_datadir, "$datadir/games/$PACKAGE")
++PINGUS_EXPAND_DIR(pingus_datadir, "$datadir/$PACKAGE")
+ AC_DEFINE_UNQUOTED(PINGUS_DATADIR, "$pingus_datadir")
+ 
+ dnl -- Define the localedir, needed for gettext --
