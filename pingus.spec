@@ -1,14 +1,15 @@
-%define	ver	20010429
+%define		cvsdate	01-05-26
 Summary:	Pingus, a lemmings style game with penguins
 Summary(pl):	Gra typu lemmingi z pingwinami w roli g³ównej
 Name:		pingus
-Version:	0.%{ver}
+Version:	0.4.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
 Group(pl):	X11/Aplikacje/Gry
-Source0:	cvs://anonymous@dark.x.dtu.dk:/usr/local/cvsroot:Games/Pingus/Pingus-%{ver}.tar.gz
+#Source0:	cvs://anonymous@dark.x.dtu.dk:/usr/local/cvsroot:Games/Pingus/Pingus-%{ver}.tar.gz
+Source0:	http://dark.x.dtu.dk/~mbn/clanlib/download/snapshots/Games/Pingus-CVS-%{cvsdate}.tar.gz
 URL:		http://pingus.seul.org/
 BuildRequires:	gtk+-devel > 1.2.1
 BuildRequires:	glib-devel
