@@ -46,8 +46,8 @@ Wspania³a gra typu lemmings z tym, ¿e sterujesz pingwinami!
 %build
 rm -f missing
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 CPPFLAGS="-I%{_includedir} -I/usr/include/libxml2/libxml"
 if [ -f %{_pkgconfigdir}/libpng12.pc ] ; then
 	CPPFLAGS="$CPPFLAGS `pkg-config libpng12 --cflags`"
