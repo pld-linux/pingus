@@ -1,0 +1,2 @@
+- rm -f missing, fix for libxml2 includes, but still doesn't build
+  (ClanLib API has changed)
