@@ -2,7 +2,7 @@ Summary:	Pingus, a lemmings style game with penguins
 Summary(pl):	Gra typu lemmingi z pingwinami w roli g³ównej
 Name:		pingus
 Version:	0.6.0
-Release:	0.5
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
@@ -45,12 +45,11 @@ rm -f missing
 CPPFLAGS="-I/usr/X11R6/include"
 %configure \
 	--with-clanGL
-#	LDFLAGS="-L/usr/X11R6/lib %{rpmldflags}"
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -58,7 +57,7 @@ install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games,%{_pixmapsdir}}
 
 mv -f $RPM_BUILD_ROOT%{_datadir}/games/pingus $RPM_BUILD_ROOT%{_datadir}/pingus
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -74,10 +73,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS TODO
 %attr(755,root,root) %{_bindir}/*
+%dir %{_datadir}/%{name}
 %{_datadir}/%{name}
 %{_mandir}/man*/*
-%{_applnkdir}/Games/*
-%{_pixmapsdir}/*
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.png
 %lang(cs) %{_datadir}/locale/cs/LC_MESSAGES/%{name}.mo
 %lang(de) %{_datadir}/locale/de/LC_MESSAGES/%{name}.mo
 %lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/%{name}.mo
