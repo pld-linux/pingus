@@ -32,8 +32,6 @@ BuildRequires:	libxml-devel
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 A cool lemmings game with penguins instead of lemmings!
