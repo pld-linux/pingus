@@ -2,7 +2,7 @@ Summary:	Pingus, a lemmings style game with penguins
 Summary(pl):	Gra typu lemmingi z pingwinami w roli g³ównej
 Name:		pingus
 Version:	0.6.0
-Release:	0.1
+Release:	0.5
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
@@ -31,7 +31,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 A cool lemmings game with penguins instead of lemmings!
 
 %description -l pl
-Wspania³a gra typu lemmings z tym, ¿e sterujesz pingwinami!
+Wspania³a gra typu lemmingi z tym, ¿e sterujesz pingwinami!
 
 %prep
 %setup -q
@@ -42,7 +42,7 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-#CPPFLAGS="-I/usr/X11R6/include -I/usr/include/libxml2/libxml"
+CPPFLAGS="-I/usr/X11R6/include"
 %configure \
 	--with-clanGL
 #	LDFLAGS="-L/usr/X11R6/lib %{rpmldflags}"
@@ -72,9 +72,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog CREDITS FAQ NEWS TODO THANKS
+%doc AUTHORS ChangeLog NEWS TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_mandir}/man*/*
 %{_applnkdir}/Games/*
 %{_pixmapsdir}/*
+%lang(cs) %{_datadir}/locale/cs/LC_MESSAGES/%{name}.mo
+%lang(de) %{_datadir}/locale/de/LC_MESSAGES/%{name}.mo
+%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/%{name}.mo
+%lang(sr) %{_datadir}/locale/sr/LC_MESSAGES/%{name}.mo
+%lang(tr) %{_datadir}/locale/tr/LC_MESSAGES/%{name}.mo
