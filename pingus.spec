@@ -57,8 +57,8 @@ rm -rf $RPM_BUILD_ROOT
 	bindir=%{_bindir} \
 	pkgdatadir=%{_datadir}/%{name}
 
-install -D %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
-install -D %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+install -D %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/%{name}
+install -D %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.desktop
 
 gzip -9nf AUTHORS BUGS ChangeLog CREDITS FAQ NEWS TODO THANKS
 
