@@ -12,6 +12,8 @@ Source2:	%{name}.png
 Patch0:		%{name}-datadir.patch
 Patch1:		%{name}-assert.patch
 URL:		http://pingus.seul.org/
+BuildRequires:	ClanLib-MikMod-devel
+BuildRequires:	ClanLib-Vorbis-devel
 BuildRequires:	ClanLib-devel >= 0.6.5
 BuildRequires:	ClanLib-devel < 0.7.0
 BuildRequires:	Hermes-devel
