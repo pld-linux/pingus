@@ -8,22 +8,23 @@ Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
 Group(pl):	X11/Aplikacje/Gry
 Source0:	http://dark.x.dtu.dk/~grumbel/%{name}/%{name}-%{version}.tar.bz2
+Source1:	%{name}.desktop
+Source2:	%{name}.png
 Patch0:		%{name}-datadir.patch
 URL:		http://pingus.seul.org/
-BuildRequires:	gtk+-devel > 1.2.1
-BuildRequires:	glib-devel
-BuildRequires:	XFree86-devel
-BuildRequires:	gettext-devel
+BuildRequires:	ClanLib-devel >= 0.5.0
+BuildRequires:	Hermes-devel
 BuildRequires:	SDL-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel
-BuildRequires:	ClanLib-devel >= 0.5.0
+BuildRequires:	XFree86-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+-devel > 1.2.1
+BuildRequires:	glib-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml-devel
-BuildRequires:	Hermes-devel
 BuildRequires:	texinfo
-BuildRequires:	automake
-BuildRequires:	autoconf
-BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -55,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	bindir=%{_bindir}
 
+install -D %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games
+install -D %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+
 gzip -9nf AUTHORS BUGS ChangeLog CREDITS FAQ NEWS TODO THANKS
 
 %clean
@@ -66,3 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_mandir}/man*/*
+%{_applnkdir}/Games/*
+%{_pixmapsdir}/*
