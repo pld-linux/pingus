@@ -80,8 +80,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.png
-%lang(cs) %{_datadir}/locale/cs/LC_MESSAGES/%{name}.mo
-%lang(de) %{_datadir}/locale/de/LC_MESSAGES/%{name}.mo
-%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/%{name}.mo
-%lang(sr) %{_datadir}/locale/sr/LC_MESSAGES/%{name}.mo
-%lang(tr) %{_datadir}/locale/tr/LC_MESSAGES/%{name}.mo
