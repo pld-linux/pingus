@@ -6,6 +6,7 @@ Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
+# Source0-md5:	9cd678272b97dbdb53f42324be31eacd
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-datadir.patch
