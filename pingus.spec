@@ -77,8 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS TODO
 %attr(755,root,root) %{_bindir}/*
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/*
+%{_datadir}/%{name}
 %{_mandir}/man*/*
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.png
