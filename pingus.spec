@@ -2,7 +2,7 @@ Summary:	Pingus, a lemmings style game with penguins
 Summary(pl):	Gra typu lemmingi z pingwinami w roli g³ównej
 Name:		pingus
 Version:	0.5.0pre2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
