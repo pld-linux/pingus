@@ -10,6 +10,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-datadir.patch
 Patch1:		%{name}-Clanlib-0.6.1.patch
+Patch2:		%{name}-amfix.patch
 URL:		http://pingus.seul.org/
 BuildRequires:	ClanLib-devel >= 0.6.1
 BuildRequires:	Hermes-devel
@@ -21,6 +22,7 @@ BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel > 1.2.1
 BuildRequires:	glib-devel
+BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml-devel
 BuildRequires:	texinfo
@@ -39,14 +41,19 @@ Wspania³a gra typu lemmings z tym, ¿e sterujesz pingwinami!
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
 aclocal
 autoconf
 automake -a -c -f
+CPPFLAGS="-I%{_includedir} -I/usr/include/libxml2/libxml"
+if [ -f %{_pkgconfigdir}/libpng12.pc ] ; then
+	CPPFLAGS="$CPPFLAGS `pkg-config libpng12 --cflags`"
+fi
 %configure \
-	CPPFLAGS="-I%{_includedir} -I/usr/include/libxml2/libxml" \
+	CPPFLAGS="$CPPFLAGS" \
 	LDFLAGS="-L%{_libdir} %{rpmldflags}"
 %{__make}
 
@@ -57,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	bindir=%{_bindir}
 
-mv $RPM_BUILD_ROOT/%{_datadir}/games/pingus $RPM_BUILD_ROOT/%{_datadir}/pingus
+mv -f $RPM_BUILD_ROOT%{_datadir}/games/pingus $RPM_BUILD_ROOT%{_datadir}/pingus
 
 install -D %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/%{name}
 install -D %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.desktop
