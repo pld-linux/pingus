@@ -3,7 +3,7 @@ Summary(pl):	Gra typu lemmingi z pingwinami w roli g³ównej
 Summary(pt_BR):	Um clone de lemmings com pingüins
 Name:		pingus
 Version:	0.6.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
@@ -12,6 +12,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-datadir.patch
 Patch1:		%{name}-assert.patch
+Patch2:		%{name}-locale_names.patch
 URL:		http://pingus.seul.org/
 BuildRequires:	ClanLib-MikMod-devel
 BuildRequires:	ClanLib-Vorbis-devel
@@ -44,6 +45,9 @@ pingüins.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+
+mv -f po/sr{,@Latn}.po
 
 %build
 rm -f missing
