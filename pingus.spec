@@ -52,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	bindir=%{_bindir} 
+	bindir=%{_bindir}
 
 mv $RPM_BUILD_ROOT/%{_datadir}/games/pingus $RPM_BUILD_ROOT/%{_datadir}/pingus
 
