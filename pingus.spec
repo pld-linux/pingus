@@ -37,7 +37,7 @@ A cool lemmings game with penguins instead of lemmings!
 Wspania³a gra typu lemmings z tym, ¿e sterujesz pingwinami!
 
 %prep
-%setup -q -n Pingus
+%setup -q -n Pingus-CVS-%{cvsdate}
 
 %build
 ./autogen.sh || :
