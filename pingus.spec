@@ -39,11 +39,12 @@ Wspania³a gra typu lemmings z tym, ¿e sterujesz pingwinami!
 %patch0 -p1
 
 %build
+rm -f missing
 ./autogen.sh || :
 install -d  data/images/buttons/
 touch data/images/buttons/Makefile.in
 %configure \
-	CPPFLAGS="-I%{_includedir}" \
+	CPPFLAGS="-I%{_includedir} -I/usr/include/libxml2/libxml" \
 	LDFLAGS="-L%{_libdir} %{rpmldflags}"
 %{__make}
 
