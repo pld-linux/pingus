@@ -45,7 +45,7 @@ Wspania³a gra typu lemmings z tym, ¿e sterujesz pingwinami!
 
 %build
 rm -f missing
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 CPPFLAGS="-I%{_includedir} -I/usr/include/libxml2/libxml"
