@@ -3,7 +3,7 @@ Summary(pl):	Gra typu lemmingi z pingwinami w roli g³ównej
 Summary(pt_BR):	Um clone de lemmings com pingüins
 Name:		pingus
 Version:	0.6.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
