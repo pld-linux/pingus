@@ -7,4 +7,5 @@ Exec=pingus
 Terminal=0
 Type=Application
 Categories=GNOME;Application;Game;ArcadeGame;
+Encoding=UTF-8
 # vi: encoding=utf-8
