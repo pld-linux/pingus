@@ -10,6 +10,7 @@ Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-datadir.patch
+Patch1:		%{name}-assert.patch
 URL:		http://pingus.seul.org/
 BuildRequires:	ClanLib-devel >= 0.6.5
 BuildRequires:	ClanLib-devel < 0.7.0
@@ -20,8 +21,6 @@ BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+-devel > 1.2.1
-BuildRequires:	glib-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
@@ -36,6 +35,7 @@ Wspania³a gra typu lemmingi z tym, ¿e steruje siê pingwinami!
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
