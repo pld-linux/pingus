@@ -1,6 +1,6 @@
 Summary:	Pingus, a lemmings style game with penguins
-Summary(pl):	Gra typu lemmingi z pingwinami w roli g³ównej
-Summary(pt_BR):	Um clone de lemmings com pingüins
+Summary(pl.UTF-8):   Gra typu lemmingi z pingwinami w roli gÅ‚Ã³wnej
+Summary(pt_BR.UTF-8):   Um clone de lemmings com pingÃ¼ins
 Name:		pingus
 Version:	0.6.0
 Release:	5
@@ -35,12 +35,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A cool lemmings game with penguins instead of lemmings!
 
-%description -l pl
-Wspania³a gra typu lemmingi z tym, ¿e steruje siê pingwinami!
+%description -l pl.UTF-8
+WspaniaÅ‚a gra typu lemmingi z tym, Å¼e steruje siÄ™ pingwinami!
 
-%description -l pt_BR
-Pingus é um clone do jogo Lemmings, com a diferença de que você guia 
-pingüins.
+%description -l pt_BR.UTF-8
+Pingus Ã© um clone do jogo Lemmings, com a diferenÃ§a de que vocÃª guia 
+pingÃ¼ins.
 
 %prep
 %setup -q
