@@ -1,6 +1,6 @@
 Summary:	Pingus, a lemmings style game with penguins
-Summary(pl.UTF-8):   Gra typu lemmingi z pingwinami w roli głównej
-Summary(pt_BR.UTF-8):   Um clone de lemmings com pingüins
+Summary(pl.UTF-8):	Gra typu lemmingi z pingwinami w roli głównej
+Summary(pt_BR.UTF-8):	Um clone de lemmings com pingüins
 Name:		pingus
 Version:	0.6.0
 Release:	5
