@@ -22,6 +22,7 @@ BuildRequires:	SDL_mixer-devel
 BuildRequires:	boost-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	physfs-devel
 BuildRequires:	sed >= 4.0
 BuildRequires:	scons
 Requires:	guile
