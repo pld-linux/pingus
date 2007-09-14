@@ -1,8 +1,3 @@
-# TODO:
-# - xorg deps
-# - install po files in proper directory (needed?)
-# - are we need post and postun sections?
-
 Summary:	Pingus, a lemmings style game with penguins
 Summary(pl.UTF-8):	Gra typu lemmingi z pingwinami w roli głównej
 Summary(pt_BR.UTF-8):	Um clone de lemmings com pingüins
@@ -15,6 +10,7 @@ Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	d967a3c233aa094236eb2ce6a3e20dd8
 Source1:	%{name}.desktop
 Source2:	%{name}.png
+Patch0:		%{name}-opt.patch
 URL:		http://pingus.seul.org/
 BuildRequires:	SDL-devel >= 1.2.0
 BuildRequires:	SDL_image-devel
@@ -22,10 +18,8 @@ BuildRequires:	SDL_mixer-devel
 BuildRequires:	boost-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	physfs-devel
-BuildRequires:	sed >= 4.0
+BuildRequires:	rpmbuild(macros) >= 1.385
 BuildRequires:	scons
-Requires:	guile
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,11 +34,15 @@ pingüins.
 
 %prep
 %setup -q
+%patch0 -p1
 
+# note: it loads *.po files directly, no need to use msgfmt
 mv -f data/po/sr{,@Latn}.po
+mv -f data/po/{no,nb}.po
+rm -f data/po/pingus.pot
 
 %build
-scons
+%scons
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -57,12 +55,6 @@ cp -r data $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
-
-%postun
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
 
 %files
 %defattr(644,root,root,755)
