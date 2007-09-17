@@ -18,6 +18,7 @@ BuildRequires:	SDL_mixer-devel
 BuildRequires:	boost-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	physfs-devel
 BuildRequires:	rpmbuild(macros) >= 1.385
 BuildRequires:	scons
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
