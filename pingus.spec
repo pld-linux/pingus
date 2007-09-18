@@ -18,6 +18,7 @@ BuildRequires:	SDL_mixer-devel
 BuildRequires:	boost-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
+# some dead code still includes <physfs.h> (but library is not used)
 BuildRequires:	physfs-devel
 BuildRequires:	rpmbuild(macros) >= 1.385
 BuildRequires:	scons
