@@ -2,26 +2,24 @@ Summary:	Pingus, a lemmings style game with penguins
 Summary(pl.UTF-8):	Gra typu lemmingi z pingwinami w roli głównej
 Summary(pt_BR.UTF-8):	Um clone de lemmings com pingüins
 Name:		pingus
-Version:	0.7.1
+Version:	0.7.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	b4fcf66d0dc5e1d6148447988f87d3b1
+# Source0-md5:	88756802d483f922d0910a14cd26a951
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-opt.patch
 URL:		http://pingus.seul.org/
-BuildRequires:	SDL-devel >= 1.2.0
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
-BuildRequires:	boost-devel
+BuildRequires:	boost-signals-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
-# some dead code still includes <physfs.h> (but library is not used)
-BuildRequires:	physfs-devel
 BuildRequires:	rpmbuild(macros) >= 1.385
 BuildRequires:	scons
+BuildRequires:	xorg-lib-libXi-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,7 +41,7 @@ mv -f data/po/sr{,@Latn}.po
 rm -f data/po/pingus.pot
 
 %build
-%scons
+%scons with_xinput=true
 
 %install
 rm -rf $RPM_BUILD_ROOT
