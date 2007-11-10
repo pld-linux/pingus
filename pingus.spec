@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Gra typu lemmingi z pingwinami w roli głównej
 Summary(pt_BR.UTF-8):	Um clone de lemmings com pingüins
 Name:		pingus
 Version:	0.7.2
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
@@ -20,6 +20,8 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.385
 BuildRequires:	scons
 BuildRequires:	xorg-lib-libXi-devel
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,7 +39,7 @@ pingüins.
 %patch0 -p1
 
 # note: it loads *.po files directly, no need to use msgfmt
-mv -f data/po/sr{,@Latn}.po
+mv -f data/po/sr{,@latin}.po
 rm -f data/po/pingus.pot
 
 %build
