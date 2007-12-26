@@ -2,10 +2,9 @@
 Name=Pingus
 Comment=Pingus, a lemmings style game with penguins
 Comment[pl]=Gra typu lemmingi z pingwinami w roli głównej
-Icon=pingus.png
+Icon=pingus
 Exec=pingus
 Terminal=false
 Type=Application
 Categories=Game;ArcadeGame;
-Encoding=UTF-8
 # vi: encoding=utf-8
