@@ -14,7 +14,7 @@ Patch0:		%{name}-opt.patch
 URL:		http://pingus.seul.org/
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
-BuildRequires:	boost-signals-devel
+BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.385
