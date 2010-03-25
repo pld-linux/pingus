@@ -2,12 +2,12 @@ Summary:	Pingus, a lemmings style game with penguins
 Summary(pl.UTF-8):	Gra typu lemmingi z pingwinami w roli głównej
 Summary(pt_BR.UTF-8):	Um clone de lemmings com pingüins
 Name:		pingus
-Version:	0.7.2
-Release:	10
+Version:	0.7.3
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://pingus.seul.org/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	88756802d483f922d0910a14cd26a951
+# Source0-md5:	7d1a0b0d658cc46dd09d6274f39acc7d
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-opt.patch
@@ -32,7 +32,7 @@ A cool lemmings game with penguins instead of lemmings!
 Wspaniała gra typu lemmingi z tym, że steruje się pingwinami!
 
 %description -l pt_BR.UTF-8
-Pingus é um clone do jogo Lemmings, com a diferença de que você guia 
+Pingus é um clone do jogo Lemmings, com a diferença de que você guia
 pingüins.
 
 %prep
@@ -62,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS TODO
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/pingus
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.png
