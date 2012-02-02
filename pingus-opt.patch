@@ -1,5 +1,5 @@
---- pingus-0.7.1/src/input/SConstruct.main~	2007-09-03 19:17:58.000000000 +0200
-+++ pingus-0.7.1/src/input/SConstruct.main	2007-09-23 22:01:17.000000000 +0200
+--- pingus-0.7.6/src/engine/input/SConstruct.main~	2007-09-03 19:17:58.000000000 +0200
++++ pingus-0.7.6/src/engine/input/SConstruct.main	2007-09-23 22:01:17.000000000 +0200
 @@ -1,6 +1,8 @@
  ##  -*- python -*-
  
@@ -10,23 +10,23 @@
                    CPPPATH  = ['..', '../..'],
                    CPPDEFINES = ['HAVE_CWIID'],
                    LIBS = ['cwiid'])
---- pingus-0.7.1/src/pingus_main.cpp~	2007-09-22 17:58:45.000000000 +0200
-+++ pingus-0.7.1/src/pingus_main.cpp	2007-09-23 22:04:32.000000000 +0200
-@@ -583,6 +583,7 @@
-       path_manager.add_path("data"); // assume game is run from source dir, without any magic
-       free(exe_path);
+--- pingus-0.7.6/src/pingus/pingus_main.cpp~    2011-12-24 22:46:47.000000000 +0100
++++ pingus-0.7.6/src/pingus/pingus_main.cpp     2012-02-02 15:36:42.650177265 +0100
+@@ -453,6 +453,7 @@
+     CFRelease(ref);
+     g_path_manager.set_path("data");
  #else
-+      path_manager.add_path("/usr/share/pingus/data");
-       path_manager.add_path("data"); // assume game is run from source dir
++    g_path_manager.set_path("/usr/share/pingus/data");
+     g_path_manager.set_path("data"); // assume game is run from source dir
  #endif
- 
---- pingus-0.7.1/SConstruct~	2007-09-22 17:46:31.000000000 +0200
-+++ pingus-0.7.1/SConstruct	2007-09-23 22:07:59.000000000 +0200
-@@ -302,6 +302,7 @@
-    opts.Add('LINKFLAGS', 'Linker Compiler flags', [])
-    opts.Add('CC', 'C Compiler', 'gcc')
-    opts.Add('CXX', 'C++ Compiler', 'g++')
-+   opts.Add('CXXFLAGS', 'compiler flags')
- #   opts.Add('debug', 'Build with debugging options', 0)
- #   opts.Add('profile', 'Build with profiling support', 0)
-    opts.Add('with_xinput', 'Build with Xinput support', False)
+   }
+--- pingus-0.7.6/SConscript~    2011-12-24 22:46:47.000000000 +0100
++++ pingus-0.7.6/SConscript     2012-02-02 16:37:37.509808383 +0100
+@@ -108,7 +108,6 @@
+         self.opts.Add('optional_sources', 'Additional source files', [])
+
+         self.env = Environment(options = self.opts, ENV=os.environ)
+-        self.env.Append(CXXFLAGS = ["-std=c++0x"])
+         self.env.Append(CPPDEFINES = [('VERSION', '"\\"%s\\""' % package_version)])
+         self.env.Append(CPPPATH = ['src/'])
+
