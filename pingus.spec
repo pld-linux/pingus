@@ -25,6 +25,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	rpmbuild(macros) >= 1.385
 BuildRequires:	scons
 #BuildRequires:	xorg-lib-libXi-devel
+Requires:	libmikmod
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
