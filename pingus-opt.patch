@@ -11,15 +11,16 @@
                    CPPDEFINES = ['HAVE_CWIID'],
                    LIBS = ['cwiid'])
 --- pingus-0.7.6/src/pingus/pingus_main.cpp~    2011-12-24 22:46:47.000000000 +0100
-+++ pingus-0.7.6/src/pingus/pingus_main.cpp     2012-02-02 15:36:42.650177265 +0100
-@@ -453,6 +453,7 @@
++++ pingus-0.7.6/src/pingus/pingus_main.cpp     2012-02-02 20:26:49.091769236 +0100
+@@ -453,7 +453,7 @@
      CFRelease(ref);
      g_path_manager.set_path("data");
  #else
+-    g_path_manager.set_path("data"); // assume game is run from source dir
 +    g_path_manager.set_path("/usr/share/pingus/data");
-     g_path_manager.set_path("data"); // assume game is run from source dir
  #endif
    }
+
 --- pingus-0.7.6/SConscript~    2011-12-24 22:46:47.000000000 +0100
 +++ pingus-0.7.6/SConscript     2012-02-02 16:37:37.509808383 +0100
 @@ -108,7 +108,6 @@
