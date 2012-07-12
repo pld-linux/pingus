@@ -15,7 +15,7 @@ Source0:	http://pingus.googlecode.com/files/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-opt.patch
-Patch1:		%{name}-gcc4.patch
+Patch1:		%{name}-gcc4.7.patch
 URL:		http://pingus.seul.org/
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
@@ -30,6 +30,8 @@ Requires:	libmikmod
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		specflags	-fpermissive -std=c++11
+
 %description
 A cool lemmings game with penguins instead of lemmings!
 
@@ -43,15 +45,13 @@ pingüins.
 %prep
 %setup -q
 %patch0 -p1
-#%%patch1 -p1
+%patch1 -p1
 
 # note: it loads *.po files directly, no need to use msgfmt
 mv -f data/po/sr{,@latin}.po
 rm -f data/po/pingus.pot
 
 %build
-export CXXFLAGS="%{rpmcxxflags} -std=c++0x"
-#%%scons with_xinput=true
 %scons
 
 %install
