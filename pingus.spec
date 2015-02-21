@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Gra typu lemmingi z pingwinami w roli głównej
 Summary(pt_BR.UTF-8):	Um clone de lemmings com pingüins
 Name:		pingus
 Version:	0.7.6
-Release:	11
+Release:	12
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://pingus.googlecode.com/files/%{name}-%{version}.tar.bz2
@@ -62,9 +62,6 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 install	build/%{name} $RPM_BUILD_ROOT%{_bindir}
 cp -r data $RPM_BUILD_ROOT%{_datadir}/%{name}
-
-# bad jpeg kills file(1)
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/%{name}/data/images/textures/easter_sky.jpg
 
 %clean
 rm -rf $RPM_BUILD_ROOT
